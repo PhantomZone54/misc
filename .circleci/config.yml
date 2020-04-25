@@ -1,0 +1,20 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: fr3akyphantom/skadoosh:latest
+    working_directory: /home/alpine/circle/
+    steps:
+      - run:
+          name: Initialize
+          command: |
+            git clone --depth 1 https://github.com/EnergizedProtection/block
+            cd block
+            git remote set-url origin --push https://$GitHubName:$GITHUB_TOKEN@github.com/EnergizedPro/unblock.git
+            git push -f
+workflows:
+  version: 2
+  energied:
+    jobs:
+      - build:
+          context: org-global
