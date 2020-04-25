@@ -10,7 +10,7 @@ jobs:
           command: |
             git clone --depth 1 https://github.com/EnergizedProtection/block
             cd block
-            git remote set-url origin --push https://$GitHubName:$GITHUB_TOKEN@github.com/EnergizedPro/unblock.git
+            git remote set-url origin --push https://$GitHubName:$GITHUB_TOKEN@github.com/EnergizedPro/block.git
             git push -f
 workflows:
   version: 2
