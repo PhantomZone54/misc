@@ -13,6 +13,8 @@ jobs:
             cd block-master
             du -sh .
             git init
+            git config --global user.email "${GitHubMail}"
+            git config --global user.name "${GitHubName}"
             curl -sL https://gist.github.com/rokibhasansagar/89dd796f9c69d6d2402d1205873393d7/raw/commit-msg -o .git/hooks/commit-msg && chmod a+x .git/hooks/commit-msg
             git add -A .
             git remote add origin https://$GitHubName:$GITHUB_TOKEN@github.com/EnergizedPro/block.git
