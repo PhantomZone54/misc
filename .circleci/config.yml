@@ -8,9 +8,15 @@ jobs:
       - run:
           name: Initialize
           command: |
-            git clone --bare https://github.com/EnergizedProtection/block
-            cd blo*
-            git push -f --mirror https://$GitHubName:$GITHUB_TOKEN@github.com/EnergizedPro/block.git
+            curl -sL https://github.com/EnergizedProtection/block/archive/master.zip -o EnergizedProtection_block.zip
+            7z x EnergizedProtection_block.zip && rm EnergizedProtection_block.zip
+            cd EnergizedProtection_*
+            git init
+            curl -sL https://gist.github.com/rokibhasansagar/89dd796f9c69d6d2402d1205873393d7/raw/commit-msg -o .git/hooks/commit-msg && chmod a+x .git/hooks/commit-msg
+            git add -A .
+            git remote add origin https://$GitHubName:$GITHUB_TOKEN@github.com/EnergizedPro/block.git
+            git commit -s -m "Blank Slate"
+            git push -f origin master
 workflows:
   version: 2
   energied:
