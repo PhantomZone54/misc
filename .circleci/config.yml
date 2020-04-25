@@ -10,7 +10,8 @@ jobs:
           command: |
             curl -sL https://github.com/EnergizedProtection/block/archive/master.zip -o EnergizedProtection_block.zip
             7z x EnergizedProtection_block.zip && rm EnergizedProtection_block.zip
-            cd EnergizedProtection_*
+            cd block-master
+            du -sh .
             git init
             curl -sL https://gist.github.com/rokibhasansagar/89dd796f9c69d6d2402d1205873393d7/raw/commit-msg -o .git/hooks/commit-msg && chmod a+x .git/hooks/commit-msg
             git add -A .
